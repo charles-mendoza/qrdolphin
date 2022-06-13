@@ -7,7 +7,7 @@ import HomeNavigationBar from '../components/HomeNavigationBar';
 import GalleryNavigationBar from '../components/GalleryNavigationBar';
 import ProfileNavigationBar from '../components/ProfileNavigationBar';
 
-const BottomTabNavigation = () => {
+const BottomTabNavigator = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'home', title: 'Home', icon: 'home-outline' },
@@ -42,4 +42,4 @@ const BottomTabNavigation = () => {
   );
 }
 
-export default BottomTabNavigation;
+export default BottomTabNavigator;

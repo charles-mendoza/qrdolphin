@@ -11,7 +11,7 @@ import {
 } from 'react-native-paper';
 import merge from 'deepmerge';
 import { useSelector } from 'react-redux';
-import BottomTabNavigation from './navigators/BottomTabNavigation';
+import BottomTabNavigator from './navigation/BottomTabNavigator';
 
 const CombinedDefaultTheme = merge(PaperDefaultTheme, NavigationDefaultTheme);
 const CombinedDarkTheme = merge(PaperDarkTheme, NavigationDarkTheme);
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <PaperProvider theme={darkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
       <NavigationContainer theme={darkMode ? CombinedDarkTheme : CombinedDefaultTheme}>
-        <BottomTabNavigation />
+        <BottomTabNavigator />
       </NavigationContainer>
     </PaperProvider>
   );
