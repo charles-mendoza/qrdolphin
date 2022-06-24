@@ -1,17 +1,25 @@
 import React from 'react';
+import { useRoute } from '@react-navigation/native';
 import { HStack, ScrollView, Hidden } from 'native-base';
 import DesktopHeader from './DesktopHeader';
-import MobileHeader from './MobileHeader';
+import GalleryHeader from './GalleryHeader';
+import ProfileHeader from './ProfileHeader';
 import LeftPanel from './LeftPanel';
 
 const Layout = ({ navigation, children }) => {
+  const route = useRoute();
   return (
     <>
       <Hidden till="md">
         <DesktopHeader title="qrdolphin" navigation={navigation} />
       </Hidden>
       <Hidden from="md">
-        <MobileHeader title="qrdolphin" />
+        {
+          (route.name === 'Gallery')
+          && <GalleryHeader title="qrdolphin" />
+          || (route.name === 'Profile')
+          && <ProfileHeader title="qrdolphin" />
+        }
       </Hidden>
       <HStack flex={1}>
         <LeftPanel navigation={navigation} />
@@ -22,8 +30,6 @@ const Layout = ({ navigation, children }) => {
             flexWrap: "wrap"
           }}
           p={{ base: 4, md: 8 }}
-          _dark={{ bg: "blueGray.900" }}
-          _light={{ bg: "white" }}
           _android={{
             contentContainerStyle: {
               justifyContent: "center"

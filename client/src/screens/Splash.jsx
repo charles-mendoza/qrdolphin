@@ -26,10 +26,10 @@ const NavigationButtons = (props) => {
           bg: 'white'
         }}
         onPress={() => {
-          props.navigation.navigate('Home')
+          props.navigation.navigate('Generator')
         }}
       >
-        HOME
+        GENERATOR
       </Button>
       <Button
         variant="outline"

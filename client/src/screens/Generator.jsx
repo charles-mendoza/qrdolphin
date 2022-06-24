@@ -161,7 +161,7 @@ const QRForm = () => {
   );
 }
 
-const Home = (props) => {
+const Generator = (props) => {
   return (
     <>
       <StatusBar
@@ -302,4 +302,4 @@ const Home = (props) => {
   );
 }
 
-export default Home;
+export default Generator;

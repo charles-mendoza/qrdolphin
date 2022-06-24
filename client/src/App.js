@@ -9,7 +9,6 @@ import {
   theme as nbTheme
 } from 'native-base';
 import { Platform } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './navigation/AppNavigator';
 
 const theme = extendTheme({
@@ -23,6 +22,7 @@ const ToggleDarkMode = () => {
   const {colorMode, toggleColorMode} = useColorMode();
   return (
     <HStack
+      // display="none"
       space={2}
       alignItems="center"
       pl="4"
@@ -61,9 +61,8 @@ const App = () => {
 
   return (
     <NativeBaseProvider theme={theme}>
-      <NavigationContainer>
-        <AppNavigator />
-      </NavigationContainer>
+      {/* I LOVE YOU MEIMIE */}
+      <AppNavigator />
       <ToggleDarkMode />
     </NativeBaseProvider>
   );

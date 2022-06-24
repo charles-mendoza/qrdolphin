@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import {
   Box,
   HStack,
@@ -8,8 +7,11 @@ import {
   Heading,
   AspectRatio,
   Image,
-  Center
+  Center,
+  Icon
 } from 'native-base';
+import Layout from '../components/Layout';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const SampleItem = () => {
   return (
@@ -24,11 +26,11 @@ const SampleItem = () => {
       backgroundColor: "gray.50"
     }}>
         <Box>
-          <AspectRatio w="100%" ratio={16 / 9}>
-            <Image source={require("../assets/qrcode.png")} alt="image" />
+          <AspectRatio w="100%" ratio={1}>
+            <Image size={80} source={require("../assets/qrcode.png")} alt="image" />
           </AspectRatio>
           <Center bg="violet.500" _dark={{
-          bg: "violet.400"
+          bg: "green.600"
         }} _text={{
           color: "warmGray.50",
           fontWeight: "700",
@@ -38,21 +40,17 @@ const SampleItem = () => {
           </Center>
         </Box>
         <Stack p="4" space={3}>
-          <Stack space={2}>
-            <Heading size="md" ml="-1">
-              QR Code
-            </Heading>
-            <Text fontSize="xs" _light={{
-            color: "violet.500"
-          }} _dark={{
-            color: "violet.400"
-          }} fontWeight="500" ml="-0.5" mt="-1">
-              Test QR code
+          <Stack space={1}>
+            <HStack justifyContent="space-between" alignItems="center">
+              <Heading size="md">
+                QR Code
+              </Heading>
+              <Icon size="5" as={<Ionicons name="heart" />} />
+            </HStack>
+            <Text fontSize="xs">
+              Lorem ipsum dolor sit amet, consectetur adipiscing...
             </Text>
           </Stack>
-          <Text fontSize="xs">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-          </Text>
           <HStack alignItems="center" space={4} justifyContent="space-between">
             <HStack alignItems="center">
               <Text color="coolGray.600" _dark={{
