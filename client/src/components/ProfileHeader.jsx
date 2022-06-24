@@ -57,15 +57,16 @@ const ProfileHeader = (props) => {
   return (
     <>
       <HStack
-        py="5"
-        space="4"
+        py="4"
         alignItems="center"
         justifyContent="space-between"
         px={{ base: 4, md: 8 }}
+        _light={{ bg: 'white' }}
       >
         <Heading fontSize="xl">{props.title}</Heading>
         <IconButton
-          icon={<Icon as={Ionicons} name="ellipsis-vertical" />}
+          p={0}
+          icon={<Icon as={Ionicons}name="ellipsis-vertical" />}
           onPress={onOpen}
         />
       </HStack>
