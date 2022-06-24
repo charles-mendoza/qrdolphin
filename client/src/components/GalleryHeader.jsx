@@ -9,17 +9,17 @@ const tabs = [
   'Favorites',
 ]
 
-const QRFilter = (props) => {
+const Tab = (props) => {
   return (
     <Pressable
-      borderBottomWidth={props.active ? 3 : 0}
-      borderColor="blue.500"
       flex={1}
+      p="1" pb="2"
       alignItems="center"
-      p="1"
+      borderColor="blue.500"
+      borderBottomWidth={props.active ? 3 : 0}
       onPress={props.onPress}
     >
-      <Text>{props.title}</Text>
+      <Text bold={props.active}>{props.title}</Text>
     </Pressable>
   );
 }
@@ -30,10 +30,9 @@ const GalleryHeader = (props) => {
     <>
       <HStack
         py="3"
-        space="4"
         alignItems="center"
-        justifyContent="space-between"
         px={{ base: 4, md: 8 }}
+        _light={{ bg: 'white' }}
       >
         <Input
           placeholder="Search"
@@ -49,9 +48,14 @@ const GalleryHeader = (props) => {
       <HStack
         alignItems="center"
         justifyContent="space-between"
+        _light={{
+          bg: 'white',
+          borderBottomColor: 'gray.200',
+          borderBottomWidth: 1
+        }}
       >
         {tabs.map((tab, i) => {
-          return <QRFilter key={tab} title={tab} onPress={() => setIndex(i)} active={index === i} />
+          return <Tab key={tab} title={tab} onPress={() => setIndex(i)} active={index === i} />
         })}
       </HStack>
     </>
