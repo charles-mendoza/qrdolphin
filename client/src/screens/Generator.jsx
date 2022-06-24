@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Pressable, Animated } from 'react-native';
 import {
   VStack,
   Box,
@@ -6,19 +7,19 @@ import {
   Text,
   Image,
   Hidden,
-  IconButton,
   Icon,
   Center,
   FormControl,
-  StatusBar,
   Stack,
   Input,
   Radio,
   Checkbox,
   Switch,
   Button,
-  Slider
+  Slider,
+  ScrollView,
 } from 'native-base';
+import Layout from '../components/Layout';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const SampleAccordion = (props) => {
@@ -60,162 +61,75 @@ const SampleAccordion = (props) => {
 
 const QRForm = () => {
   return (
-    <>
-      <Box>
-        <VStack space="5" my="6">
-          <SampleAccordion title="ENTER CONTENT" icon="md-document-text" />
-          <FormControl>
-            <Input
-              isRequired
-              size="lg"
-              variant="outline"
-              label="Content"
-              placeholder="Content"
-              borderRadius="4"
-              _text={{
-                fontSize: "sm",
-                fontWeight: "medium",
-              }}
-              _dark={{
-                borderColor: "coolGray.700",
-              }}
-              _light={{
-                borderColor: "coolGray.300",
-              }}
-            />
-          </FormControl>
-          <HStack space="2" alignItems="center">
-            <Switch size="lg" />
-            <Text>Statistics and Editability</Text>
-          </HStack>
-        </VStack>
-        <VStack
-          space={{
-            base: "4",
-            md: "5",
-          }}
-        >
-          <SampleAccordion title="SET COLOR" icon="brush" />
-          <Text
-            bold
-            fontSize="m"
-            _dark={{
-              color: "coolGray.50",
+    <Box>
+      <VStack space="5" mb="6">
+        <SampleAccordion title="ENTER CONTENT" icon="md-document-text" />
+        <FormControl>
+          <Input
+            isRequired
+            size="lg"
+            variant="outline"
+            label="Content"
+            placeholder="Content"
+            borderRadius="4"
+            _text={{
+              fontSize: "sm",
+              fontWeight: "medium",
             }}
-            _light={{
-              color: "coolGray.800",
-            }}
-          >
-            Foreground Color
-          </Text>
-          <HStack space="2" alignItems="center">
-            <Radio.Group defaultValue="1" name="myRadioGroup" accessibilityLabel="Pick your favorite number">
-              <HStack space="2" alignItems="center">
-                <Radio value="1" size="sm" my={1}>
-                  <Text fontSize="xs">Single Color</Text>
-                </Radio>
-                <Radio value="2" size="sm" my={1}>
-                  <Text fontSize="xs">Color Gradient</Text>
-                </Radio>
-              </HStack>
-            </Radio.Group>
-            <Checkbox
-              alignItems="flex-start"
-              isChecked
-              value="demo"
-              colorScheme="primary"
-              accessibilityLabel="Remember me"
-            >
-              <Text
-                fontSize="xs"
-                fontWeight="normal"
-                _light={{
-                  color: "coolGray.800",
-                }}
-                _dark={{
-                  color: "coolGray.400",
-                }}
-              >
-                Custom Eye Color
-              </Text>
-            </Checkbox>
-          </HStack>
-          <Text bold fontSize="m">
-            Background Color
-          </Text>
-          <SampleAccordion title="ADD LOGO IMAGE" icon="image-outline" />
-          <SampleAccordion title="CUSTOMIZE DESIGN" icon="qr-code-outline" />
-        </VStack>
-      </Box>
-      <HStack
-        mt="28"
-        mb="4"
-        space="1"
-        safeAreaBottom
-        alignItems="center"
-        justifyContent="center"
+          />
+        </FormControl>
+        <HStack space="2" alignItems="center">
+          <Switch size="lg" />
+          <Text>Statistics and Editability</Text>
+        </HStack>
+      </VStack>
+      <VStack
+        space={{
+          base: "4",
+          md: "5",
+        }}
       >
-        {/* Footer */}
-      </HStack>
-    </>
+        <SampleAccordion title="SET COLOR" icon="brush" />
+        <Text fontSize="sm" bold>
+          Foreground Color
+        </Text>
+        <HStack space="2" alignItems="center">
+          <Radio.Group defaultValue="1" name="myRadioGroup" accessibilityLabel="Pick your favorite number">
+            <HStack space="2" alignItems="center">
+              <Radio value="1" size="sm" my={1}>
+                <Text fontSize="xs">Single Color</Text>
+              </Radio>
+              <Radio value="2" size="sm" my={1}>
+                <Text fontSize="xs">Color Gradient</Text>
+              </Radio>
+            </HStack>
+          </Radio.Group>
+          <Checkbox
+            alignItems="flex-start"
+            isChecked
+            value="demo"
+            colorScheme="primary"
+            accessibilityLabel="Remember me"
+          >
+            <Text fontSize="xs" fontWeight="normal">
+              Custom Eye Color
+            </Text>
+          </Checkbox>
+        </HStack>
+        <Text bold fontSize="sm">
+          Background Color
+        </Text>
+        <SampleAccordion title="ADD LOGO IMAGE" icon="image-outline" />
+        <SampleAccordion title="CUSTOMIZE DESIGN" icon="qr-code-outline" />
+      </VStack>
+    </Box>
   );
 }
 
 const Generator = (props) => {
   return (
-    <>
-      <StatusBar
-        translucent
-        backgroundColor="transparent"
-        barStyle="light-content"
-      />
-      <Box
-        safeAreaTop
-        _light={{
-          bg: "primary.900",
-        }}
-        _dark={{
-          bg: "coolGray.900",
-        }}
-      />
-      <HStack
-        py="5"
-        space="2" px="4"
-        justifyContent="space-between"
-        alignItems="center"
-        _dark={{
-          bg: "darkBlue.900",
-        }}
-        _light={{
-          bg: "primary.800",
-        }}
-      >
-        <HStack alignItems="center">
-          <IconButton icon={<Icon as={Ionicons} name="menu" color="white" />} />
-          <HStack alignItems="center" pl="2" pb="1">
-            <Text color="coolGray.50" fontSize="lg" bold>
-              qr
-            </Text>
-            <Text color="coolGray.50" fontSize="lg">
-              dolphin
-            </Text>
-          </HStack>
-        </HStack>
-        <HStack>
-          <IconButton icon={<Icon as={Ionicons} name="search" color="white" />} />
-          <IconButton icon={<Icon as={Ionicons} name="ellipsis-vertical" color="white" />} />
-        </HStack>
-      </HStack>
-      <Center
-        my="auto"
-        _dark={{
-          bg: "blueGray.900",
-        }}
-        _light={{
-          bg: "primary.800",
-        }}
-        flex="1"
-      >
+    <Layout navigation={props.navigation}>
+      <Center flex="1" my="auto">
         <Stack
           flexDirection={{
             base: "column",
@@ -233,12 +147,7 @@ const Generator = (props) => {
           <Hidden till="md">
             <Box
               flex="1"
-              _light={{
-                bg: "gray.100"
-              }}
-              _dark={{
-                bg: "coolGray.800"
-              }}
+              p="6"
               px={{
                 base: "4",
                 md: "8",
@@ -253,17 +162,10 @@ const Generator = (props) => {
               <QRForm />
             </Box>
           </Hidden>
-          <Center
+          <ScrollView
             flex="1"
-            py={{
-              base: "6",
-              md: "12",
-            }}
-            _light={{
-              bg: "white",
-            }}
-            _dark={{
-              bg: "blueGray.700",
+            maxW={{
+              md: "377px",
             }}
             borderTopRightRadius={{
               md: "xl",
@@ -272,33 +174,40 @@ const Generator = (props) => {
               md: "xl",
             }}
           >
-            <VStack>
-              <Image
-                size="80"
-                alt="QR Code"
-                resizeMode={"contain"}
-                source={require("../assets/qrcode.png")}
-              />
-              <Slider defaultValue={50} size="lg" mt="6">
-                <Slider.Track>
-                  <Slider.FilledTrack />
-                </Slider.Track>
-                <Slider.Thumb />
-              </Slider>
-              <HStack flex="1" mt="6" justifyContent="space-between" alignItems="center">
+            <Hidden from="md">
+              <QRForm />
+            </Hidden>
+            <Center p="6">
+              <Box>
+                <Image
+                  size="80"
+                  alt="QR Code"
+                  resizeMode={"contain"}
+                  source={require("../assets/qrcode.png")}
+                />
+                <Box>
+                  <Slider defaultValue={50} size="lg" mt="6">
+                    <Slider.Track>
+                      <Slider.FilledTrack />
+                    </Slider.Track>
+                    <Slider.Thumb />
+                  </Slider>
+                </Box>
+              </Box>
+              <HStack flex="1" mt="6" space="4" justifyContent="space-between" alignItems="center">
                 <Button colorScheme="green" size="lg">Create QR Code</Button>
                 <Button size="lg">Download PNG</Button>
               </HStack>
-              <HStack flex="1" mt="3" alignItems="center">
+              <HStack flex="1" mt="3" space="4" alignItems="center">
                 <Button size="lg" px="6" variant="outline" borderColor="darkBlue.500">.SVG</Button>
-                <Button size="lg" px="6" mx="2" variant="outline" borderColor="darkBlue.500">.PDF</Button>
+                <Button size="lg" px="6" variant="outline" borderColor="darkBlue.500">.PDF</Button>
                 <Button size="lg" px="6" variant="outline" borderColor="darkBlue.500">.EPS</Button>
               </HStack>
-            </VStack>
-          </Center>
+            </Center>
+          </ScrollView>
         </Stack>
       </Center>
-    </>
+    </Layout>
   );
 }
 

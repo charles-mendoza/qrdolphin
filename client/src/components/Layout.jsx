@@ -3,6 +3,7 @@ import { useRoute } from '@react-navigation/native';
 import { HStack, ScrollView, Hidden } from 'native-base';
 import DesktopHeader from './DesktopHeader';
 import GalleryHeader from './GalleryHeader';
+import GeneratorHeader from './GeneratorHeader';
 import ProfileHeader from './ProfileHeader';
 import LeftPanel from './LeftPanel';
 
@@ -17,6 +18,8 @@ const Layout = ({ navigation, children }) => {
         {
           (route.name === 'Gallery')
           && <GalleryHeader title="qrdolphin" />
+          || (route.name === 'Generator')
+          && <GeneratorHeader title="qrdolphin" />
           || (route.name === 'Profile')
           && <ProfileHeader title="qrdolphin" />
         }
