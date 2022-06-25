@@ -1,50 +1,14 @@
 import React, { useEffect } from 'react';
-import {
-  Switch,
-  useColorMode,
-  HStack,
-  Text,
-  NativeBaseProvider,
-  extendTheme,
-  theme as nbTheme
-} from 'native-base';
 import { Platform } from 'react-native';
+import { NativeBaseProvider, extendTheme, theme as nbTheme } from 'native-base';
 import AppNavigator from './navigation/AppNavigator';
+import ToggleDarkMode from './components/ToggleDarkMode';
 
 const theme = extendTheme({
   colors: {
     primary: nbTheme.colors.blue,
   }
 });
-
-// Color Switch Component for frontend dev purposes
-const ToggleDarkMode = () => {
-  const {colorMode, toggleColorMode} = useColorMode();
-  return (
-    <HStack
-      // display="none"
-      space={2}
-      alignItems="center"
-      pl="4"
-      _light={{
-        bg: 'white'
-      }}
-      _dark={{
-        bg: 'black'
-      }}
-    >
-      <Text>Dark</Text>
-      <Switch
-        isChecked={colorMode === 'light'}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === 'light' ? 'switch to dark mode' : 'switch to light mode'
-        }
-      />
-      <Text>Light</Text>
-    </HStack>
-  );
-}
 
 const App = () => {
   useEffect(() => {
@@ -61,7 +25,6 @@ const App = () => {
 
   return (
     <NativeBaseProvider theme={theme}>
-      {/* I LOVE YOU MEIMIE */}
       <AppNavigator />
       <ToggleDarkMode />
     </NativeBaseProvider>
