@@ -107,7 +107,7 @@ const ForgotPassword = (props) => {
                 size="80"
                 alt="NativeBase Startup+ "
                 resizeMode={"contain"}
-                source={require("../assets/logo-full.png")}
+                source={require("../../assets/logo-full.png")}
               />
             </Center>
           </Hidden>

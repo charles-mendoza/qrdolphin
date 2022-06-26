@@ -16,14 +16,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const sidebarItems = [
   {
     title: "Generator",
-    routeName: "Generator",
-    iconName: "speedometer-outline",
+    routeName: "Palette",
+    iconName: "qr-code-outline",
     iconLibrary: Ionicons,
   },
   {
     title: "Gallery",
     routeName: "Gallery",
-    iconName: "qr-code-outline",
+    iconName: "albums-outline",
     iconLibrary: Ionicons,
   },
   {
@@ -40,12 +40,12 @@ const helpItems = [
     iconName: "settings-outline",
     iconLibrary: Ionicons,
   },
-  {
-    title: "Help",
-    routeName: "Help",
-    iconName: "help-circle-outline",
-    iconLibrary: Ionicons,
-  },
+  // {
+  //   title: "Help",
+  //   routeName: "Help",
+  //   iconName: "help-circle-outline",
+  //   iconLibrary: Ionicons,
+  // },
 ];
 
 const LeftPanelItemButton = (props) => {

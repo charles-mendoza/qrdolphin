@@ -1,58 +1,30 @@
 import React from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useColorMode } from 'native-base';
-import Gallery from '../screens/Gallery';
+import RootNavigator from './RootNavigator';
+import AuthNavigator from './AuthNavigator';
+import Palette from '../screens/Palette';
+import Editor from '../screens/Editor';
 import Generator from '../screens/Generator';
-import Profile from '../screens/Profile';
-// import Splash from '../screens/Splash';
-// import SignIn from '../screens/SignIn';
-// import SignUp from '../screens/SignUp';
-// import ForgotPassword from '../screens/ForgotPassword';
-import Ionicon from 'react-native-vector-icons/Ionicons';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
   const {colorMode} = useColorMode();
   return (
     <NavigationContainer theme={colorMode === 'light' ? DefaultTheme : DarkTheme}>
-      <Tab.Navigator
+      <Stack.Navigator
+        initialRouteName="Root"
         screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Tab.Screen
-          name="Gallery"
-          component={Gallery}
-          options={{
-            tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => (
-              <Ionicon name="qr-code-outline" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Generator"
-          component={Generator}
-          options={{
-            tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => (
-              <Ionicon name="add-circle-outline" color={color} size={(size * 1.5)} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            tabBarShowLabel: false,
-            tabBarIcon: ({ color, size }) => (
-              <Ionicon name="person-circle-outline" color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
+          headerShown: false
+        }}>
+        <Stack.Screen name="Root" component={RootNavigator} />
+        <Stack.Screen name="Auth" component={AuthNavigator} />
+        <Stack.Screen name="Palette" component={Palette} />
+        <Stack.Screen name="Editor" component={Editor} />
+        <Stack.Screen name="Generator" component={Generator} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

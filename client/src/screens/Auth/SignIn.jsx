@@ -20,7 +20,7 @@ import {
   ScrollView
 } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { FacebookIcon, GoogleIcon } from '../components/Icons';
+import { FacebookIcon, GoogleIcon } from '../../components/Icons';
 
 export const SignInForm = ({ props }) => {
   const [text, setText] = useState('');
@@ -404,7 +404,7 @@ const SignIn = (props) => {
                 size="80"
                 alt="NativeBase Startup+ "
                 resizeMode={"contain"}
-                source={require("../assets/logo-full.png")}
+                source={require("../../assets/logo-full.png")}
               />
             </Center>
           </Hidden>

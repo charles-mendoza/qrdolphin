@@ -7,11 +7,11 @@ import {
   Icon,
   useDisclose,
   Actionsheet,
-  ScrollView,
-  Button
+  ScrollView
 } from 'native-base';
 import { useRoute } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const profileMenuItems = [
   {
@@ -21,11 +21,11 @@ const profileMenuItems = [
     iconLibrary: Ionicons,
   },
   {
-    title: "Help",
-    routeName: "Help",
-    iconName: "help-circle-outline",
-    iconLibrary: Ionicons,
-  },
+    title: "Scan History",
+    routeName: "History",
+    iconName: "history",
+    iconLibrary: MaterialCommunityIcons,
+  }
 ];
 
 const ProfileActionSheetItem = (props) => {
@@ -51,7 +51,7 @@ const ProfileActionSheetItem = (props) => {
   );
 }
 
-const ProfileHeader = (props) => {
+const ProfileHeader = ({ navigation, title }) => {
   const route = useRoute();
   const { isOpen, onOpen, onClose } = useDisclose();
   return (
@@ -63,9 +63,12 @@ const ProfileHeader = (props) => {
         px={{ base: 4, md: 8 }}
         _light={{ bg: 'white' }}
       >
-        <Heading fontSize="xl">{props.title}</Heading>
+        <HStack alignItems="center">
+          <Heading fontSize="xl">{title}</Heading>
+        </HStack>
         <IconButton
-          p={0}
+          p="1"
+          borderRadius="full"
           icon={<Icon as={Ionicons}name="ellipsis-vertical" />}
           onPress={onOpen}
         />
@@ -89,17 +92,10 @@ const ProfileHeader = (props) => {
                     item={item}
                     key={index}
                     route={route}
-                    navigation={props.navigation}
+                    navigation={navigation}
                   />
                 );
               })}
-              <Button
-                onPress={()=>{
-                  console.log('logout')
-                }}
-              >
-                Log out
-              </Button>
             </VStack>
           </ScrollView>
         </Actionsheet.Content>

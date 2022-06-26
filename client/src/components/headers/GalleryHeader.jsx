@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Pressable, HStack, Input, Icon, Text } from 'native-base';
+import { HStack, Input, IconButton, Icon } from 'native-base';
+import Tab from '../Tab';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const tabs = [
   'All',
@@ -9,40 +11,35 @@ const tabs = [
   'Favorites',
 ]
 
-const Tab = (props) => {
-  return (
-    <Pressable
-      flex={1}
-      p="1" pb="2"
-      alignItems="center"
-      borderColor="blue.500"
-      borderBottomWidth={props.active ? 3 : 0}
-      onPress={props.onPress}
-    >
-      <Text bold={props.active}>{props.title}</Text>
-    </Pressable>
-  );
-}
-
-const GalleryHeader = (props) => {
+const GalleryHeader = ({ navigation }) => {
   const [index, setIndex] = useState(0);
   return (
     <>
       <HStack
         py="3"
+        space="3"
         alignItems="center"
+        justifyContent="space-between"
         px={{ base: 4, md: 8 }}
         _light={{ bg: 'white' }}
       >
         <Input
+          flex="1"
           placeholder="Search"
-          width="100%"
-          height="9"
+          w="100%"
+          h="9"
           borderRadius="10"
           fontSize="16"
           InputLeftElement={
             <Icon ml="3" size="4" as={<Ionicons name="search" />} />
           }
+        />
+        <IconButton
+          p="1"
+          icon={<Icon as={MaterialCommunityIcons} name="qrcode-scan" size="6" />}
+          onPress={() => {
+            navigation.navigate('Scanner')
+          }}
         />
       </HStack>
       <HStack

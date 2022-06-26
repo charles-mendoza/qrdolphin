@@ -1,8 +1,8 @@
+import './ignoreWarnings';
 import React, { useEffect } from 'react';
 import { Platform } from 'react-native';
 import { NativeBaseProvider, extendTheme, theme as nbTheme } from 'native-base';
 import AppNavigator from './navigation/AppNavigator';
-import ToggleDarkMode from './components/ToggleDarkMode';
 
 const theme = extendTheme({
   colors: {
@@ -16,6 +16,10 @@ const App = () => {
       const iconFontStyles = `@font-face {
           src: url(${require('react-native-vector-icons/Fonts/Ionicons.ttf')});
           font-family: "Ionicons";
+        }
+        @font-face {
+          src: url(${require('react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf')});
+          font-family: "MaterialCommunityIcons";
         }`;
       const style = document.createElement('style');
       style.appendChild(document.createTextNode(iconFontStyles));
@@ -26,7 +30,6 @@ const App = () => {
   return (
     <NativeBaseProvider theme={theme}>
       <AppNavigator />
-      <ToggleDarkMode />
     </NativeBaseProvider>
   );
 }
