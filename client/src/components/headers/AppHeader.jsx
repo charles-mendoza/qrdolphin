@@ -3,7 +3,7 @@ import { HStack, Text, IconButton, Icon } from 'native-base';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const GeneratorHeader = (props) => {
+const AppHeader = (props) => {
   const route = useRoute();
   const navigation = useNavigation();
   return (
@@ -37,4 +37,4 @@ const GeneratorHeader = (props) => {
   );
 }
 
-export default GeneratorHeader;
+export default AppHeader;
