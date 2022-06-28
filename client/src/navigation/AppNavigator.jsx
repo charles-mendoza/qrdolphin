@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useColorMode } from 'native-base';
+import { StatusBar, useColorMode } from 'native-base';
 import RootNavigator from './RootNavigator';
 import AuthNavigator from './AuthNavigator';
 import Palette from '../screens/Palette';
@@ -14,6 +14,7 @@ const AppNavigator = () => {
   const {colorMode} = useColorMode();
   return (
     <NavigationContainer theme={colorMode === 'light' ? DefaultTheme : DarkTheme}>
+      <StatusBar />
       <Stack.Navigator
         initialRouteName="Root"
         screenOptions={{
